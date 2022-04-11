@@ -31,10 +31,9 @@ using std::unordered_set;
  *       https://en.wikipedia.org/wiki/Stanford_University
  */
 vector<string> findWikiLadder(const string& start_page, const string& end_page) {
-    // TODO: Fill in the findWikiLinks method in wikiscraper.cpp,
-    //       then write this  function as per the handout.
-    //
-    //                Best of luck!
+    WikiScraper scraper;
+
+
     return {};
 }
 

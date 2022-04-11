@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+STUDENTDATABASE_H	studentdatabase.h	2;"	d
+STUDENT_H	student.h	2;"	d
+Student	student.cpp	/^Student::Student(std::string inpName,$/;"	f	class:Student
+Student	student.h	/^class Student {$/;"	c
+StudentDatabase	studentdatabase.h	/^class StudentDatabase$/;"	c
+addStudent	studentdatabase.cpp	/^void StudentDatabase::addStudent(const Student& s) {$/;"	f	class:StudentDatabase
+classLevel	student.cpp	/^std::string Student::classLevel() {$/;"	f	class:Student
+db	studentdatabase.h	/^    std::vector<Student> db;$/;"	m	class:StudentDatabase
+empty	studentdatabase.cpp	/^bool StudentDatabase::empty() {$/;"	f	class:StudentDatabase
+getName	student.cpp	/^std::string Student::getName() {$/;"	f	class:Student
+getSuid	student.cpp	/^std::string Student::getSuid() {$/;"	f	class:Student
+getUnits	student.cpp	/^int Student::getUnits() {$/;"	f	class:Student
+hasStudent	studentdatabase.cpp	/^bool StudentDatabase::hasStudent(Student toFind) {$/;"	f	class:StudentDatabase
+main	main.cpp	/^int main() {$/;"	f
+name	student.h	/^    std::string name;$/;"	m	class:Student
+numUnits	student.h	/^    int numUnits;$/;"	m	class:Student
+operator ==	student.cpp	/^bool operator==(Student left, Student right) {$/;"	f
+size	studentdatabase.cpp	/^int StudentDatabase::size() {$/;"	f	class:StudentDatabase
+studentsInYear	studentdatabase.cpp	/^std::vector<Student> StudentDatabase::studentsInYear(std::string yearToFind) {$/;"	f	class:StudentDatabase
+suid	student.h	/^    std::string suid;$/;"	m	class:Student

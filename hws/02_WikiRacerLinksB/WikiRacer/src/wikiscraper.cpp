@@ -9,27 +9,50 @@ using std::cout;            using std::endl;
 using std::cerr;            using std::string;
 using std::unordered_map;   using std::unordered_set;
 
-
-
-
-/*
- * You should delete the code in this function and
- * fill it in with your code from part A of the assignment.
- *
- * If you used any helper functions, just put them above this function.
- */
-unordered_set<string> findWikiLinks(const string& inp) {
-    // TODO: Remove all the code in this function and
-    //       fill in with code from part A of assignmetn
-
-    errorPrint();
-    errorPrint("If you are seeing this message, you haven't implemented");
-    errorPrint("the find_wiki_links method in wikiscraper.cpp.");
-    errorPrint();
-    cout << endl;
-    return {};
-
+string itTostring(string::iterator word_start,string::iterator word_end) {
+    string ret;
+    while(word_start != word_end) {
+        ret += (*word_start);
+        word_start++;
+    }
+    return ret;
 }
+
+// pay attention to the use of the function all_of
+bool judge(char ch) {
+    if(((ch) != '#' && (ch) != ':')) {
+        return true;
+    }
+    return false;
+}
+
+unordered_set<string> findWikiLinks(const string& inp) {
+    string page_html = inp;
+    unordered_set<string> output;
+    string target = "/wiki/";
+    string page_name;
+
+    string::iterator it_s;
+    string::iterator word_start;
+
+    auto start = page_html.begin();
+    auto end = page_html.end();
+
+    while(start != end) {
+        it_s = std::search(start,end,target.begin(),target.end());
+        if(it_s != end) {
+            word_start = it_s + 6;  // reach the name
+            it_s = std::find(word_start,end,'\"');
+            if(std::all_of(word_start,it_s,judge)) {
+                page_name = itTostring(word_start,it_s);
+                output.insert(page_name);
+            }
+        }
+        start = it_s;
+    }
+    return output;
+}
+
 
 
 /*
