@@ -30,7 +30,6 @@ string fileTostring(ifstream& input) {
     string ret;
     string line;
     while(std::getline(input,line)) {
-        std::transform(line.begin(),line.end(),line.begin(), ::tolower);
         ret += line + " ";
     }
     return ret;
