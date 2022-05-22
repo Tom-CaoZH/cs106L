@@ -65,8 +65,14 @@ void HashMap<K, M, H>::clear() {
 }
 
 template <typename K, typename M, typename H>
-typename HashMap<K, M, H>::iterator HashMap<K, M, H>::find(const K& key) const{
+typename HashMap<K, M, H>::iterator HashMap<K, M, H>::find(const K& key) {
     return make_iterator(find_node(key).second);
+}
+
+
+template <typename K, typename M, typename H>
+typename HashMap<K, M, H>::const_iterator HashMap<K, M, H>::find(const K& key) const{
+    return static_cast<const_iterator>(const_cast<HashMap<K, M, H>*>(this)->find(key));
 }
 
 template <typename K, typename M, typename H>
@@ -85,6 +91,23 @@ std::pair<typename HashMap<K, M, H>::iterator, bool> HashMap<K, M, H>::insert(co
     ++_size;
     return {make_iterator(temp), true};
 }
+
+// template <typename K, typename M, typename H>
+// std::pair<typename HashMap<K, M, H>::const_iterator, bool> HashMap<K, M, H>::insert(const value_type& value) {
+//     const auto& [key, mapped] = value;
+//     auto [prev, node_to_edit] = find_node(key);
+//     size_t index = _hash_function(key) % bucket_count();
+
+//     if (node_to_edit != nullptr) {
+//         return {static_cast<const_iterator>(const_cast<HashMap<K, M, H>*>(this)->make_iterator(node_to_edit)), false};
+//     }
+
+//     auto temp = new node(value, _buckets_array[index]);
+//     _buckets_array[index] = temp;
+
+//     ++_size;
+//     return {static_cast<const_iterator>(const_cast<HashMap<K, M, H>*>(this)->make_iterator(temp)), true};
+// } 
 
 template <typename K, typename M, typename H>
 typename HashMap<K, M, H>::node_pair HashMap<K, M, H>::find_node(const K& key) const {
@@ -124,6 +147,12 @@ typename HashMap<K, M, H>::const_iterator HashMap<K, M, H>::begin() const {
 template <typename K, typename M, typename H>
 typename HashMap<K, M, H>::iterator HashMap<K, M, H>::end() {
     return make_iterator(nullptr);
+}
+
+
+template <typename K, typename M, typename H>
+typename HashMap<K, M, H>::const_iterator HashMap<K, M, H>::end() const{
+    return static_cast<const_iterator>(const_cast<HashMap<K, M, H>*>(this)->end());
 }
 
 template <typename K, typename M, typename H>
@@ -221,7 +250,7 @@ HashMap<K, M, H>::HashMap(std::initializer_list<value_type> init, size_t bucket_
 }
 
 template <typename K, typename M, typename H>
-M& HashMap<K, M, H>::operator[](const K& key) const{
+M& HashMap<K, M, H>::operator[](const K& key) {
    return insert({key, {}}).first->second;
 }
 

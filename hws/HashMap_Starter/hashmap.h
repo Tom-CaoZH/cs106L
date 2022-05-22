@@ -265,8 +265,9 @@ public:
      *
      * Complexity: O(1) amortized average case, O(N) worst case, N = number of elements
      */
-    iterator find(const K& key) const;
+    iterator find(const K& key);
 
+    const_iterator find(const K& key) const;
     /*
     * Inserts the K/M pair into the HashMap, if the key does not already exist.
     * If the key exists, then the operation is a no-op.
@@ -288,6 +289,7 @@ public:
     */
     std::pair<iterator, bool> insert(const value_type& value);
 
+    // std::pair<const_iterator, bool> insert(const value_type& value); 
     /*
     * Erases a K/M pair (if one exists) corresponding to given key from the HashMap.
     * This is a no-op if the key does not exist.
@@ -376,6 +378,7 @@ public:
      */
     iterator end();
 
+    const_iterator end() const;
 
     /*
     * Function that will print to std::cout the contents of the hash table as
@@ -450,8 +453,8 @@ public:
      *
      * Complexity: O(1) average case amortized plus complexity of K and M's constructor
      */
-    M& operator[](const K& key) const;
 
+    M& operator[](const K& key) ;
     /* Milestone 2 headers (you need to declare these) */
     // TODO: declare headers for copy constructor/assignment, move constructor/assignment
 
