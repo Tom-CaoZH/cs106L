@@ -143,7 +143,7 @@ public:
     *
     * Complexity: O(1) (inlined because function is short)
     */
-    inline size_t size() const;
+    inline size_t size();
 
     /*
     * Returns whether the HashMap is empty.
@@ -156,7 +156,7 @@ public:
     *
     * Complexity: O(1) (inlined because function is short)
     */
-    inline bool empty() const;
+    inline bool empty();
 
     /*
     * Returns the load_factor, defined as size/bucket_count.
@@ -172,7 +172,7 @@ public:
     * Notes: our minimal implementation does not automatically rehash when the load
     * factor is too high. If you want as an extension, you can implement automatic rehashing.
     */
-    inline float load_factor() const;
+    inline float load_factor();
 
     /*
     * Returns the number of buckets.
@@ -211,7 +211,7 @@ public:
     * Since contains feels more natural to students who've used the Stanford libraries
     * and will be available in the future, we will implement map.contains(key).
     */
-    bool contains(const K& key) const;
+    bool contains(const K& key);
 
     /*
     * Returns a l-value reference to the mapped value given a key.
@@ -232,7 +232,7 @@ public:
     * if a key is not found. Instead, it will create a K/M pair for that key with a default
     * mapped value. This function is also not const-correct, which you will fix in milestone 2.
     */
-    M& at(const K& key) const;
+    M& at(const K& key);
 
     /*
     * Removes all K/M pairs the HashMap.
@@ -265,10 +265,7 @@ public:
      *
      * Complexity: O(1) amortized average case, O(N) worst case, N = number of elements
      */
-    iterator find(const K& key) const;
-
-    // const_iterator version of find 
-    const_iterator find(const K& key);
+    iterator find(const K& key);
 
     /*
     * Inserts the K/M pair into the HashMap, if the key does not already exist.
@@ -290,9 +287,6 @@ public:
     * Complexity: O(1) amortized average case
     */
     std::pair<iterator, bool> insert(const value_type& value);
-
-    // const version of insert
-    // std::pair<const_iterator, bool> insert(const value_type& value);
 
     /*
     * Erases a K/M pair (if one exists) corresponding to given key from the HashMap.
@@ -329,10 +323,6 @@ public:
     */
     iterator erase(const_iterator pos);
 
-    // const version of erase
-    // const_iterator erase(const_iterator pos);
-
-
     /*
     * Resizes the array of buckets, and rehashes all elements. new_buckets could
     * be larger than, smaller than, or equal to the original number of buckets.
@@ -357,7 +347,7 @@ public:
     * linked list problem, and students had a difficult time finding an elegant solution.
     * Instead, we will ask short answer questions on this function instead.
     */
-    void rehash(const size_t new_buckets);
+    void rehash(size_t new_buckets);
 
     /*
      * Returns an iterator to the first element.
@@ -366,7 +356,7 @@ public:
      * Usage:
      *      auto iter = map.begin();
      */
-    iterator begin() const;
+    iterator begin();
 
     /*
      * Returns a const_iterator to the first element.
@@ -375,7 +365,7 @@ public:
      * Usage:
      *      auto iter = cmap.begin();
      */    
-    const_iterator begin();
+    const_iterator begin() const;
 
     /*
      * Returns an iterator to one past the last element.
@@ -384,10 +374,7 @@ public:
      * Usage:
      *      while (iter != map.end()) {...}
      */
-    iterator end() const;
-
-
-    const_iterator end();
+    iterator end();
 
 
     /*
@@ -410,7 +397,7 @@ public:
     * Tip: place map.debug() in various places in the test cases to figure out which operation
     * is failing. Super useful when we debugged our code.
     */
-    void debug() const;
+    void debug();
 
     /* EXTRA CONSTURCTORS */
 
@@ -463,7 +450,7 @@ public:
      *
      * Complexity: O(1) average case amortized plus complexity of K and M's constructor
      */
-    M& operator[](const K& key) const;
+    M& operator[](const K& key);
 
     /* Milestone 2 headers (you need to declare these) */
     // TODO: declare headers for copy constructor/assignment, move constructor/assignment
