@@ -51,6 +51,23 @@ HashMap<K, M, H>& HashMap<K, M, H>::operator = (const HashMap& map) {
     return *this;
 }
 
+
+template <typename K, typename M, typename H>
+HashMap<K, M, H>::HashMap(HashMap&& map) :
+    _size{std::move(map._size)},
+    _hash_function{std::move(map._hash_function)},
+    _buckets_array(std::move(map._buckets_array)) {}
+
+template <typename K, typename M, typename H>
+HashMap<K, M, H>& HashMap<K, M, H>::operator = (HashMap&& map) {
+    if(&map == this) return *this;
+    clear();
+    _size = std::move(map._size);
+    _hash_function = std::move(map._hash_function);
+    _buckets_array = std::move(map._buckets_array);
+    return *this;
+}
+
 template <typename K, typename M, typename H>
 inline size_t HashMap<K, M, H>::size() const{
     return _size;

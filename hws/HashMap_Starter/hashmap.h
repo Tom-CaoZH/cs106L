@@ -150,6 +150,26 @@ public:
     HashMap& operator = (const HashMap& map);
 
     /*
+    * move constructor
+    *
+    * Usage: (implicitly called when HashMap goes out of scope)
+    *
+    * Complexity: O(N), N = number of elements
+    */
+    HashMap(HashMap&& map);
+
+
+    /*
+    * move assignment
+    *
+    * Usage: (implicitly called when HashMap goes out of scope)
+    *
+    * Complexity: O(N), N = number of elements
+    */
+    HashMap& operator = (HashMap&& map);
+
+
+    /*
     * Returns the number of (K, M) pairs in the map.
     *
     * We declare this function inline since it is short and
