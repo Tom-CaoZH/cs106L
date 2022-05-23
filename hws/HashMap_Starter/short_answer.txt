@@ -1,2 +1,13 @@
 Assignment 3: STL HashMap (short answer questions)
-Names:
+Names: TC(Tom Cao)
+
+1. at vs []
+at : would not creat a new entry for the non-exit elem,so it will not call the insert function , then there is no need to implement a non-const version
+[] : would creat a new entry for a non-exit elem , so it calls insert to done it , then there will be a need for the non-const version
+
+2. HashMap::find vs std::find
+TODO
+
+3. RAII
+In the implement of this HashMap function , we 
+

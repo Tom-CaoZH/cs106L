@@ -1,7 +1,7 @@
 #include "hashmap.h"
 #include <set>
 using namespace std;
-//UNCOMMENT THESE FOR MILESTONE 2
+// UNCOMMENT THESE FOR MILESTONE 2
 #include "tests.cpp"
 #include "test_settings.cpp"
 #include <iostream>
@@ -24,7 +24,7 @@ int main() {
         student_main();
     } else if (answer == 2) {
         cout << ":P" << endl;
-        //UNCOMMENT THIS FOR MILESTONE 2
+        // UNCOMMENT THIS FOR MILESTONE 2
         run_test_harness();
     } else {
         cout << "Please run your code again and hit 1 or 2 only!";

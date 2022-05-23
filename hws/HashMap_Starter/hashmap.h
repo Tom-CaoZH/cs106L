@@ -129,6 +129,26 @@ public:
     */
     ~HashMap();
 
+
+    /*
+    * copy constructor
+    *
+    * Usage: (implicitly called when HashMap goes out of scope)
+    *
+    * Complexity: O(N), N = number of elements
+    */
+    HashMap(const HashMap& map);
+
+
+    /*
+    * copy assignment
+    *
+    * Usage: (implicitly called when HashMap goes out of scope)
+    *
+    * Complexity: O(N), N = number of elements
+    */
+    HashMap& operator = (const HashMap& map);
+
     /*
     * Returns the number of (K, M) pairs in the map.
     *

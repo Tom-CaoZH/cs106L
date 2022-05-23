@@ -21,6 +21,37 @@ HashMap<K, M, H>::~HashMap() {
 }
 
 template <typename K, typename M, typename H>
+HashMap<K, M, H>::HashMap(const HashMap& map) :
+    _size{0},
+    _hash_function{map._hash_function},
+    _buckets_array(std::vector<node*>((int)map.bucket_count(), nullptr)) {
+        for(node* tmp_node : map._buckets_array) {
+            while(tmp_node != nullptr) {
+                this->insert(tmp_node->value);
+                tmp_node = tmp_node->next;
+            }
+        }
+    }
+
+template <typename K, typename M, typename H>
+HashMap<K, M, H>& HashMap<K, M, H>::operator = (const HashMap& map) {
+    if(&map == this) return *this;
+    clear();
+    _size = 0;
+    _hash_function = map._hash_function;
+    int size = (int)map.bucket_count();
+    _buckets_array = std::vector<node*>(size, nullptr);
+
+    for(node* tmp_node : map._buckets_array) {
+        while(tmp_node != nullptr) {
+            this->insert(tmp_node->value);
+            tmp_node = tmp_node->next;
+        }
+    }
+    return *this;
+}
+
+template <typename K, typename M, typename H>
 inline size_t HashMap<K, M, H>::size() const{
     return _size;
 }
